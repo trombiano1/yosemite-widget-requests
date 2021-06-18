@@ -1,0 +1,418 @@
+<!doctype html>
+<html>
+<head>
+	<title>Yosemite Notification Center Widget Requests</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function() {
+				numberBoxes =  $(".box").length;
+				if (numberBoxes%2 == 1){
+					document.querySelector("#submissionDetailsContainer").style.top = (850 + (365 * ((numberBoxes/2) + 0.5))) + "px";
+				} else {
+					document.querySelector("#submissionDetailsContainer").style.top = (850 + (365 * (numberBoxes/2))) + "px";
+				}
+	});
+	</script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-56109907-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+	<style>
+		html {
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+		#introContainer{
+			background: url(yosemite.jpg) no-repeat center center;
+			background-size:cover;
+			display:block;
+			position:absolute;
+			height: 800px;
+			top:0;
+			left:0;
+			margin-top:0px;
+			padding:0px;
+			max-width:100%;
+			margin-bottom:150px;
+			padding-bottom:50px;
+		}
+		#iconContainer {
+			text-align:center;
+			margin-top:100px;
+		}
+		#title{
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size: 60px;
+			margin-top:50px;
+			display: block;
+			color: #FFF;
+			text-align: center;
+		}
+		#subtitle{
+			font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size:45px;
+			display: block;
+			color: #FFF;
+			text-align: center;
+		}
+		#intro{
+			font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size:20px;
+			width:50%;
+			color: #FFF;
+			text-align: center;
+			margin-top:25px;
+			margin-left: auto;
+			margin-right: auto;
+			padding-bottom:50px;
+		}
+		#submissionIntro{
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size:20px;
+			width:50%;
+			color: #000;
+			height: 300px;
+			text-align: center;
+			margin-top:25px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#boxesContainer{
+			display:block;
+			position:absolute;
+			background-color:#EEE;
+			max-width:100%;
+			left:0;
+			top:800px;
+			width:100%;
+			margin: 0 auto;
+			color:#000;
+			padding-bottom: 50px;
+		}
+		.box{
+			font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			background-color:#FFF;
+			margin-top: 50px;
+			min-height:300px;
+			padding: 5px;
+			display: block;
+			position: relative;
+			width: 40%;
+			margin-left:4%;
+			margin-right:4%;
+			border-radius:8px;
+			border:2px solid #BBB;
+			float: left;
+		}
+		.itemTitle{
+			font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size: 18px;
+			padding-top: 0px;
+			padding-left: 20px;
+			margin-bottom: 2px;
+		}
+		.reviewSeparator{
+			display: block;
+			position: absolute;
+			border: 0;
+			width: 100%;
+			border-color:#BBB;
+			background-color:#BBB;
+			margin-top: 0px;
+			margin-left: -5px;
+			margin-right: 0px;
+			height: 2px;
+		}
+		.infoBox{
+			display: block;
+			margin-left: 30px;
+			font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size: 14px;
+			margin-bottom: 10px;
+		}
+		.user{
+			display: inline-block;
+			font-size: 14px;
+			margin: 0px;
+			padding: 0px;
+		}
+		.date{
+			margin-top: 2px;
+			margin-bottom: 2px;
+		}
+		.mainExplanation{
+			display: block;
+			margin-left: 20px;
+			padding-top: 10px;
+			padding-bottom: 20px;
+			width: 90%;
+		}
+		.answerSeparator{
+			display: block;
+			border: 0;
+			width: 101.5%;
+			border-color:#BBB;
+			background-color:#BBB;
+			margin-top: 0px;
+			margin-left: -0.75%;
+			margin-right: 0px;
+			height: 2px;
+		}
+		.review{
+			display: block;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			text-align: right;
+			margin-right: 5%;
+		}
+		.likes, .doIt, .suggest{
+			display: inline;
+		}
+		.likes{
+			margin-left: 15px;
+		}
+		.doIt{
+			margin-left: 15px;
+		}
+		.solved{
+			font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size: 16px;
+			margin: 0px;
+			color:#008000;
+		}
+		#submissionDetailsContainer{
+			display: block;
+			position: absolute;
+			width:100%;
+			left: 0px;
+			height: 500px;
+		}
+		#submissionTitle{
+			margin-top: 80px;
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size:45px;
+			display: block;
+			color: #000;
+			text-align: center;
+		}
+		#mailIcon{
+			display: block;
+			position: absolute;
+			margin-top: 20px;
+		}
+		#submissionExplanation{
+			display: block;
+			display: absolute;
+			width: 70%;
+			margin-left: 180px;
+			margin-right: 10px;
+			margin-top: 50px;
+			height: 100px;
+			text-align:left;
+		}
+		.applicationName{
+			display: inline-block;
+			margin: 0px;
+		}
+		.answers{
+			padding: 30px;
+			padding-top:15px;
+			padding-bottom:15px;
+		}
+		.footer{
+			display: block;
+			position: absolute;
+			bottom: 3px;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id = "introContainer">
+		<div id = "iconContainer">
+			<img src="icon.png" alt = "icon" height = "250px" width = "250px">
+		</div>
+		<div id = "title">
+			Yosemite Notification Center
+		</div>
+		<div id = "subtitle">
+			Widget Requests Center
+		</div>
+		<div id = "intro">
+			<p>One of the great Yosemite's features definitely is the Today view in Notification Center. Now it supports widgets, which is very useful. Unfortunately, Apple doesn't provide us with a tool that we can use to request widgets to the developers. So here it is. Now you can post here the widgets that you want and developers can see what you want.<br />Scroll to the very bottom to see how you post one yourself.</p>
+		</div>
+	</div>
+	<div id = "boxesContainer">
+		<!--
+		<div class = "box">
+			<h2 class = "itemTitle">Network Speed Monitorer</h2>
+			<div class = "infoBox">
+				User: <p class = "user">mftetsudou</p>
+				<p class = "date">April 4, 2014 10:00 PM</p>
+				<p class = "solved">Solved</p>
+			</div>
+			<p class = "mainExplanation">It would be great if there is a widget that can show the network speed, just like the application <i>wdgts</i> in iOS does.</p>
+			<div class = "answerContainer">
+				<hr class = "answerSeparator">
+				<div class = "answers">
+					<p>This widget already exists in <p id = "applicationName"><a href = "">iStat Menu</a></p></p>
+				</div>
+			</div>
+			<hr class = "reviewSeparator">
+			<div class = "review">
+				<p class = "suggest"><a href = "">This widget already exists</a></p><p class = "doIt"><a href = "">I will work on this widget</a></p><p class = "likes"><a href = "">Like</a> (1) </p>
+			</div>
+		</div>
+		-->
+		<!---************************************-->
+		<div class = "box">
+			<h2 class = "itemTitle">Network Speed Monitorer</h2>
+			<div class = "infoBox">
+				User: <p class = "user">mftetsudou</p>
+				<p class = "date">October 23, 2014 10:04 PM</p>
+				<p class = "solved">Solved</p>
+			</div>
+			<p class = "mainExplanation">It would be great if there is a widget that can show the network speed, just like the application <i>wdgts</i> in iOS does.</p>
+			<div class = "answerContainer">
+				<hr class = "answerSeparator">
+				<div class = "answers">
+					This widget already exists in application <b><p class = "applicationName"><a href = "https://itunes.apple.com/app/istat-mini/id927292435?mt=12&ign-mpt=uo%3D4">iStat Mini</a></b></p>.
+				</div>
+			</div>
+			<div class = "footer">
+				<hr class = "reviewSeparator">
+				<div class = "review">
+					<p class = "suggest"><a href = "">This widget already exists</a></p><p class = "doIt"><a href = "">I will work on this widget</a></p><p class = "likes"><a href = "">Like</a> (4) </p>
+				</div>
+			</div>
+		</div>
+
+		<div class = "box">
+			<h2 class = "itemTitle">CPU Usage</h2>
+			<div class = "infoBox">
+				User: <p class = "user">132sd1345b</p>
+				<p class = "date">October 22, 2014 8:00 AM</p>
+			</div>
+			<p class = "mainExplanation">I want a widget that can show CPU usage. It would also be great if there is a widget that shows how much memory you are using as well.</p>
+			<div class = "footer">
+				<hr class = "reviewSeparator">
+				<div class = "review">
+					<p class = "suggest"><a href = "">This widget already exists</a></p><p class = "doIt"><a href = "">I will work on this widget</a></p><p class = "likes"><a href = "">Like</a> (2) </p>
+				</div>
+			</div>
+		</div>
+
+		<div class = "box">
+			<h2 class = "itemTitle">BPM Getter</h2>
+			<div class = "infoBox">
+				User: <p class = "user">hdn</p>
+				<p class = "date">October 21, 2014 9:32 AM</p>
+			</div>
+			<p class = "mainExplanation">In the old <i>Dashboard</i> in older versions of Mac OS X, there used to be a third party widget that could tell your bpm by clicking on a button. I'm guessing it wouldn't be too hard to make.</p>
+			<div class = "footer">
+				<hr class = "reviewSeparator">
+				<div class = "review">
+					<p class = "suggest"><a href = "">This widget already exists</a></p><p class = "doIt"><a href = "">I will work on this widget</a></p><p class = "likes"><a href = "">Like</a> (2) </p>
+				</div>
+			</div>
+		</div>
+
+		<div class = "box">
+			<h2 class = "itemTitle">Simple Translater</h2>
+			<div class = "infoBox">
+				User: <p class = "user">jbfan</p>
+				<p class = "date">October 20, 2014 12:19 AM</p>
+			</div>
+			<p class = "mainExplanation">Just like in Dashboard, it would be great if there is a widget that can quickly trasnslate words/phrases into another language.</p>
+			<div class = "footer">
+				<hr class = "reviewSeparator">
+				<div class = "review">
+					<p class = "suggest"><a href = "">This widget already exists</a></p><p class = "doIt"><a href = "">I will work on this widget</a></p><p class = "likes"><a href = "">Like</a> (1) </p>
+				</div>
+			</div>
+		</div>
+
+		<div class = "box">
+			<h2 class = "itemTitle">Dictionary</h2>
+			<div class = "infoBox">
+				User: <p class = "user">098k</p>
+				<p class = "date">October 20, 2014 5:19 PM</p>
+			</div>
+			<p class = "mainExplanation">A quick widget to bring up the definitions and synonyms of words.</p>
+			<div class = "footer">
+				<hr class = "reviewSeparator">
+				<div class = "review">
+					<p class = "suggest"><a href = "">This widget already exists</a></p><p class = "doIt"><a href = "">I will work on this widget</a></p><p class = "likes"><a href = "">Like</a> (0) </p>
+				</div>
+			</div>
+		</div>
+
+		<div class = "box">
+			<h2 class = "itemTitle">Movie Times</h2>
+			<div class = "infoBox">
+				User: <p class = "user">KD</p>
+				<p class = "date">October 26, 2014 3:38 AM</p>
+			</div>
+			<p class = "mainExplanation">I would like a widget that gives local theater times for movies. Pick a favorite theater and see whats playing and when. Thinking along the lines of the iPhone apple trailer app, kind of.</p>
+			<div class = "footer">
+				<hr class = "reviewSeparator">
+				<div class = "review">
+					<p class = "suggest"><a href = "">This widget already exists</a></p><p class = "doIt"><a href = "">I will work on this widget</a></p><p class = "likes"><a href = "">Like</a> (0) </p>
+				</div>
+			</div>
+		</div>
+
+		<div class = "box">
+			<h2 class = "itemTitle">BBC Radio Widget</h2>
+			<div class = "infoBox">
+				User: <p class = "user">SL</p>
+				<p class = "date">October 26, 2014 9:43 AM</p>
+			</div>
+			<p class = "mainExplanation">A widget that allows you to select which BBC radio station to stream.</p>
+			<div class = "footer">
+				<hr class = "reviewSeparator">
+				<div class = "review">
+					<p class = "suggest"><a href = "">This widget already exists</a></p><p class = "doIt"><a href = "">I will work on this widget</a></p><p class = "likes"><a href = "">Like</a> (0) </p>
+				</div>
+			</div>
+		</div>
+
+		<div class = "box">
+			<h2 class = "itemTitle">UK National Rail</h2>
+			<div class = "infoBox">
+				User: <p class = "user">SL</p>
+				<p class = "date">October 26, 2014 9:44 AM</p>
+			</div>
+			<p class = "mainExplanation">A widget that allows you to select from and to stations and displays the current timetable/status of trains.</p>
+			<div class = "footer">
+				<hr class = "reviewSeparator">
+				<div class = "review">
+					<p class = "suggest"><a href = "">This widget already exists</a></p><p class = "doIt"><a href = "">I will work on this widget</a></p><p class = "likes"><a href = "">Like</a> (0) </p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div id = "submissionDetailsContainer">
+		<div id = "submissionTitle">
+			How to Submit Your Ideas
+		</div>
+		<div id = "submissionIntro">
+			<img id = "mailIcon" src = "mailIcon.png">
+			<div id = "submissionExplanation">
+				<p>This website doesn't support posting with browser yet. To submit a widget idea, please send an email to <a href="">yosemite.widget@gmail.com</a>.</p>
+				<p>Your subject will be the title of your post, and your content will be the content of the post. You can also put your username on the last line (optional).</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
